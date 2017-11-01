@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Full Calendar</title>
+
+  <link rel="stylesheet" href="../node_modules/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="../node_modules/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+
+  <script src="../node_modules/moment/min/moment.min.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/fullcalendar/dist/fullcalendar.min.js"></script>
+  <script src="../node_modules/fullcalendar/dist/locale/zh-cn.js"></script>
+
+  <style>
+    .active-color {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="fullCalendar"></div>
+  <div id="selectedDate"></div>
+  <script>
+    $(document).ready(function () {
+      var prevClickCell;
+
+      $("#fullCalendar").fullCalendar({
+        // 默认就是month
+        defaultView: 'month',
+        // 国际化，设置中文
+        locale: 'zh-cn',
+        // 头部视图设置
+        header: {
+          left: 'prev',
+          center: 'title',
+          right: 'today next'
+        },
+        // 高度自适应
+        height: "auto",
+        // 按钮不现实icon，显示文字
+        buttonIcons: false,
+        // 默认为true，月视图每月固定6行。false，根据月适应。
+        fixedWeekCount: false,
+        // 工作日颜色区分
+        businessHours: true,
+        // 渲染天
+        dayRender: function (date, cell) {
+          var weekday = date.weekday();
+          cell.css("text-align", "center");
+          cell.css("vertical-align", "middle");
+
+          if (weekday > 4) {
+            cell.text("休息");
+          }
+          else {
+            cell.text("日班");
+          }
+        },
+        // 点击天
+        dayClick: function(date, jsEvent, view) {
+            // 删除上一次点击时候添加的class
+            if (prevClickCell) {
+              $(prevClickCell).removeClass("active-color");
+            };
+
+            // 设置class
+            $(this).addClass("active-color");
+
+            // 缓存这次点击的cell
+            prevClickCell = this;
+
+            // 设置日期
+            $("#selectedDate").css("color", "red").text(date.format("MM月DD日 dddd"));
+        },
+        events: [
+
+        ],
+        resources: [
+
+        ]
+      });
+    })
+  </script>
+</body>
+</html>

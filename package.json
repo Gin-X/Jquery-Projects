@@ -1,0 +1,24 @@
+{
+  "name": "jquery-projects",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gin-X/Jquery-Projects.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gin-X/Jquery-Projects/issues"
+  },
+  "homepage": "https://github.com/Gin-X/Jquery-Projects#readme",
+  "dependencies": {
+    "fullcalendar": "^3.6.2",
+    "jquery": "^1.12.4",
+    "moment": "^2.19.1"
+  }
+}
