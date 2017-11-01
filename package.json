@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Gin-X/Jquery-Projects#readme",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "fullcalendar": "^3.6.2",
     "jquery": "^1.12.4",
     "moment": "^2.19.1"
